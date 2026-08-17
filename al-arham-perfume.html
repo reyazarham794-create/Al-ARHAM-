@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AL-ARHAM Attar &amp; Perfum | Luxury Arabic Fragrances</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&family=Amiri:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF;
+    --ivory:#FBF8F2;
+    --gold:#D4AF37;
+    --gold-soft:#E9CD6E;
+    --gold-deep:#9C7A22;
+    --black:#111111;
+    --charcoal:#1B1B1B;
+    --line: rgba(212,175,55,0.28);
+    --shadow-lux: 0 30px 60px -25px rgba(0,0,0,0.35);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Jost', sans-serif;
+    background:var(--ivory);
+    color:var(--black);
+    overflow-x:hidden;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    letter-spacing:0.01em;
+  }
+  .eyebrow{
+    font-family:'Amiri', serif;
+    font-style:italic;
+    color:var(--gold-deep);
+    font-size:1.05rem;
+    letter-spacing:0.12em;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    justify-content:center;
+    margin-bottom:18px;
+  }
+  .eyebrow::before,.eyebrow::after{
+    content:'';
+    width:36px;height:1px;
+    background:linear-gradient(90deg, transparent, var(--gold));
+  }
+  .eyebrow::after{background:linear-gradient(90deg, var(--gold), transparent);}
+
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%;display:block;}
+  section{position:relative;}
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  ::selection{background:var(--gold); color:#111;}
+
+  /* ---------- scroll reveal ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity 0.9s cubic-bezier(.19,1,.22,1), transform 0.9s cubic-bezier(.19,1,.22,1);
+  }
+  .reveal.in{opacity:1; transform:translateY(0);}
+  .reveal-delay-1{transition-delay:.12s;}
+  .reveal-delay-2{transition-delay:.24s;}
+  .reveal-delay-3{transition-delay:.36s;}
+
+  /* ---------- header ---------- */
+  header{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:1000;
+    padding:20px 0;
+    transition:all .45s ease;
+  }
+  header.scrolled{
+    padding:12px 0;
+    background:rgba(255,255,255,0.65);
+    backdrop-filter:blur(18px) saturate(160%);
+    -webkit-backdrop-filter:blur(18px) saturate(160%);
+    box-shadow:0 8px 32px rgba(0,0,0,0.06);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  .logo{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.55rem;
+    font-weight:700;
+    letter-spacing:0.06em;
+    display:flex;
+    flex-direction:column;
+    line-height:1;
+  }
+  .logo span{
+    font-family:'Jost', sans-serif;
+    font-size:0.55rem;
+    font-weight:400;
+    letter-spacing:0.32em;
+    color:var(--gold-deep);
+    margin-top:4px;
+  }
+  .nav-links{
+    display:flex;
+    gap:40px;
+    font-size:0.85rem;
+    letter-spacing:0.06em;
+  }
+  .nav-links a{
+    position:relative;
+    padding:4px 0;
+    transition:color .3s;
+  }
+  .nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0; bottom:-2px;
+    width:0; height:1px;
+    background:var(--gold);
+    transition:width .35s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-links a:hover{color:var(--gold-deep);}
+
+  .nav-cta{
+    display:flex;
+    align-items:center;
+    gap:22px;
+  }
+  .icon-btn{
+    width:20px;height:20px;
+    cursor:pointer;
+  }
+  .menu-toggle{display:none; cursor:pointer; z-index:1200;}
+  .menu-toggle span{
+    display:block;width:26px;height:1px;background:var(--black);margin:6px 0;
+    transition:.3s;
+  }
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:16px 38px;
+    font-size:0.78rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    border-radius:2px;
+    cursor:pointer;
+    transition:all .45s cubic-bezier(.19,1,.22,1);
+    position:relative;
+    overflow:hidden;
+    border:1px solid transparent;
+  }
+  .btn-gold{
+    background:linear-gradient(120deg, var(--gold-deep), var(--gold) 45%, var(--gold-soft) 55%, var(--gold-deep));
+    background-size:220% 100%;
+    background-position:0% 0%;
+    color:#111;
+    box-shadow:0 14px 30px -12px rgba(212,175,55,0.65);
+  }
+  .btn-gold:hover{background-position:100% 0%; transform:translateY(-2px); box-shadow:0 18px 36px -12px rgba(212,175,55,0.8);}
+  .btn-outline{
+    border:1px solid rgba(17,17,17,0.55);
+    color:var(--black);
+    background:transparent;
+  }
+  .btn-outline:hover{
+    border-color:var(--gold);
+    background:rgba(212,175,55,0.08);
+    color:var(--gold-deep);
+    transform:translateY(-2px);
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:150px 24px 100px;
+    position:relative;
+    background:
+      radial-gradient(ellipse 60% 45% at 18% 20%, rgba(212,175,55,0.16), transparent 60%),
+      radial-gradient(ellipse 55% 40% at 85% 75%, rgba(212,175,55,0.14), transparent 60%),
+      linear-gradient(180deg, #FFFFFF 0%, #FBF8F2 55%, #F6F0E2 100%);
+    overflow:hidden;
+  }
+  .marble-veins{
+    position:absolute; inset:0;
+    opacity:0.55;
+    mix-blend-mode:multiply;
+    pointer-events:none;
+  }
+  .arabesque-bg{
+    position:absolute;
+    inset:0;
+    opacity:0.05;
+    background-repeat:repeat;
+    background-size:220px;
+    pointer-events:none;
+  }
+  .smoke{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(60px);
+    opacity:0.35;
+    pointer-events:none;
+    animation:drift 18s ease-in-out infinite;
+  }
+  .smoke-1{width:420px;height:420px; background:radial-gradient(circle, rgba(212,175,55,0.55), transparent 70%); top:-100px; left:-120px;}
+  .smoke-2{width:360px;height:360px; background:radial-gradient(circle, rgba(212,175,55,0.4), transparent 70%); bottom:-80px; right:-100px; animation-delay:4s;}
+  @keyframes drift{
+    0%,100%{transform:translate(0,0) scale(1);}
+    50%{transform:translate(30px,-24px) scale(1.08);}
+  }
+
+  .hero-inner{position:relative; z-index:2; max-width:820px;}
+  .hero-bottle{
+    width:120px; height:120px;
+    margin:0 auto 30px;
+    animation:float 6s ease-in-out infinite;
+    filter:drop-shadow(0 22px 30px rgba(212,175,55,0.35));
+  }
+  @keyframes float{
+    0%,100%{transform:translateY(0px);}
+    50%{transform:translateY(-14px);}
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 6vw, 4.6rem);
+    line-height:1.08;
+    margin-bottom:26px;
+    color:var(--black);
+  }
+  .hero h1 em{
+    font-style:italic;
+    background:linear-gradient(120deg, var(--gold-deep), var(--gold) 40%, var(--gold-soft) 60%, var(--gold-deep));
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:shine 5s linear infinite;
+  }
+  @keyframes shine{
+    to{background-position:200% center;}
+  }
+  .hero p{
+    font-size:1.08rem;
+    line-height:1.85;
+    color:#3d3d3d;
+    max-width:600px;
+    margin:0 auto 44px;
+    font-weight:300;
+  }
+  .hero-btns{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .scroll-cue{
+    position:absolute;
+    bottom:36px; left:50%;
+    transform:translateX(-50%);
+    display:flex; flex-direction:column; align-items:center;
+    gap:10px;
+    font-size:0.65rem;
+    letter-spacing:0.28em;
+    color:var(--gold-deep);
+    z-index:3;
+  }
+  .scroll-cue .line{
+    width:1px; height:44px;
+    background:linear-gradient(180deg, var(--gold), transparent);
+    animation:scrollline 2.2s ease-in-out infinite;
+  }
+  @keyframes scrollline{
+    0%{transform:scaleY(0); transform-origin:top;}
+    50%{transform:scaleY(1); transform-origin:top;}
+    50.1%{transform-origin:bottom;}
+    100%{transform:scaleY(0); transform-origin:bottom;}
+  }
+
+  /* ---------- divider ---------- */
+  .divider{
+    display:flex;
+    justify-content:center;
+    padding:0 0 10px;
+  }
+  .divider svg{width:180px; height:34px; opacity:0.85;}
+
+  /* ---------- section heading ---------- */
+  .section-head{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto 64px;
+  }
+  .section-head h2{
+    font-size:clamp(2rem, 4vw, 2.9rem);
+    color:var(--black);
+  }
+
+  section.pad{padding:120px 0;}
+
+  /* ---------- collection ---------- */
+  .collection{background:var(--white);}
+  .product-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:36px;
+  }
+  .product-card{
+    position:relative;
+    background:linear-gradient(180deg, #FFFFFF, #FBF8F2);
+    border:1px solid rgba(17,17,17,0.06);
+    border-radius:6px;
+    padding:44px 32px 36px;
+    text-align:center;
+    box-shadow:var(--shadow-lux);
+    transition:transform .55s cubic-bezier(.19,1,.22,1), box-shadow .55s;
+    overflow:hidden;
+  }
+  .product-card::before{
+    content:'';
+    position:absolute; inset:0;
+    border:1px solid transparent;
+    background:linear-gradient(180deg, rgba(212,175,55,0.5), transparent 40%) border-box;
+    -webkit-mask:linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    opacity:0;
+    transition:opacity .5s;
+    pointer-events:none;
+  }
+  .product-card:hover{transform:translateY(-10px); box-shadow:0 40px 70px -25px rgba(212,175,55,0.4);}
+  .product-card:hover::before{opacity:1;}
+  .product-card .tag{
+    position:absolute; top:20px; left:20px;
+    font-size:0.6rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    border:1px solid var(--line);
+    padding:5px 10px;
+    border-radius:20px;
+    background:rgba(212,175,55,0.06);
+  }
+  .bottle-wrap{
+    width:150px; height:190px;
+    margin:10px auto 26px;
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .bottle-wrap .glow{
+    position:absolute; inset:0;
+    background:radial-gradient(circle, rgba(212,175,55,0.35), transparent 70%);
+    filter:blur(18px);
+    transition:opacity .5s;
+    opacity:0.5;
+  }
+  .product-card:hover .bottle-wrap .glow{opacity:1;}
+  .bottle-wrap svg{width:100px; height:170px; position:relative; z-index:2; transition:transform .6s cubic-bezier(.19,1,.22,1);}
+  .product-card:hover .bottle-wrap svg{transform:translateY(-6px) scale(1.03);}
+
+  .product-card h3{font-size:1.55rem; margin-bottom:8px;}
+  .product-card .price{
+    font-family:'Jost', sans-serif;
+    font-size:1.2rem;
+    color:var(--gold-deep);
+    letter-spacing:0.04em;
+    margin-bottom:16px;
+    font-weight:500;
+  }
+  .product-card p.desc{
+    font-size:0.9rem;
+    line-height:1.75;
+    color:#555;
+    margin-bottom:28px;
+    min-height:95px;
+  }
+  .product-card .btn{width:100%; padding:14px 20px;}
+
+  /* ---------- why choose us ---------- */
+  .why{
+    background:var(--black);
+    color:var(--white);
+    position:relative;
+    overflow:hidden;
+  }
+  .why::before{
+    content:'';
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 50% 60% at 10% 10%, rgba(212,175,55,0.14), transparent 60%),
+      radial-gradient(ellipse 50% 60% at 95% 90%, rgba(212,175,55,0.12), transparent 60%);
+    pointer-events:none;
+  }
+  .why .section-head h2{color:var(--white);}
+  .why .eyebrow{color:var(--gold-soft);}
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.08);
+    position:relative; z-index:2;
+  }
+  .why-item{
+    background:#141414;
+    padding:44px 30px;
+    text-align:center;
+    transition:background .4s;
+  }
+  .why-item:hover{background:#1c1a12;}
+  .why-item .num{
+    width:46px; height:46px;
+    margin:0 auto 20px;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gold);
+  }
+  .why-item h4{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.25rem;
+    font-weight:600;
+    margin-bottom:10px;
+    letter-spacing:0.02em;
+  }
+  .why-item p{
+    font-size:0.85rem;
+    color:rgba(255,255,255,0.55);
+    line-height:1.7;
+  }
+
+  /* ---------- about ---------- */
+  .about{background:var(--ivory);}
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.85fr 1.15fr;
+    gap:80px;
+    align-items:center;
+  }
+  .about-visual{
+    position:relative;
+    aspect-ratio:4/5;
+    border-radius:6px;
+    background:linear-gradient(160deg, #fff, #f2ead6);
+    box-shadow:var(--shadow-lux);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .about-visual::after{
+    content:'';
+    position:absolute; inset:14px;
+    border:1px solid var(--line);
+    pointer-events:none;
+  }
+  .about-visual svg{width:60%; filter:drop-shadow(0 20px 30px rgba(212,175,55,0.3));}
+  .about-text .eyebrow{justify-content:flex-start;}
+  .about-text .eyebrow::after{display:none;}
+  .about-text h2{font-size:clamp(2rem,4vw,2.7rem); margin-bottom:24px;}
+  .about-text p{
+    font-size:0.98rem;
+    line-height:1.9;
+    color:#444;
+    margin-bottom:18px;
+    font-weight:300;
+  }
+  .about-text .signature{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.5rem;
+    color:var(--gold-deep);
+    margin-top:26px;
+  }
+
+  /* ---------- reviews ---------- */
+  .reviews{
+    background:var(--white);
+    position:relative;
+  }
+  .review-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:30px;
+  }
+  .review-card{
+    background:rgba(255,255,255,0.6);
+    border:1px solid var(--line);
+    backdrop-filter:blur(10px);
+    padding:38px 32px;
+    border-radius:6px;
+    box-shadow:0 20px 45px -30px rgba(0,0,0,0.25);
+    transition:transform .5s cubic-bezier(.19,1,.22,1);
+  }
+  .review-card:hover{transform:translateY(-8px);}
+  .stars{color:var(--gold); font-size:1rem; letter-spacing:3px; margin-bottom:18px;}
+  .review-card p.quote{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.25rem;
+    font-style:italic;
+    line-height:1.6;
+    color:#222;
+    margin-bottom:22px;
+  }
+  .review-name{
+    font-size:0.75rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+  }
+
+  /* ---------- contact ---------- */
+  .contact{
+    background:var(--black);
+    color:var(--white);
+    position:relative;
+    overflow:hidden;
+  }
+  .contact::before{
+    content:'';
+    position:absolute; inset:0;
+    background:radial-gradient(ellipse 60% 60% at 50% 0%, rgba(212,175,55,0.14), transparent 65%);
+    pointer-events:none;
+  }
+  .contact-inner{
+    position:relative; z-index:2;
+    text-align:center;
+    max-width:640px;
+    margin:0 auto;
+  }
+  .contact .eyebrow{color:var(--gold-soft);}
+  .contact h2{color:var(--white); font-size:clamp(2rem,4vw,2.8rem); margin-bottom:20px;}
+  .contact p.lead{color:rgba(255,255,255,0.6); margin-bottom:50px; line-height:1.8; font-size:0.98rem;}
+  .contact-details{
+    display:flex;
+    justify-content:center;
+    gap:60px;
+    flex-wrap:wrap;
+  }
+  .contact-item{
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+  }
+  .contact-item .ic{
+    width:48px; height:48px;
+    border:1px solid var(--gold);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gold);
+    transition:.4s;
+  }
+  .contact-item:hover .ic{background:var(--gold); color:#111;}
+  .contact-item .label{font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.4);}
+  .contact-item .value{font-size:1rem; letter-spacing:0.03em;}
+
+  /* ---------- footer ---------- */
+  footer{
+    background:#0b0b0b;
+    color:rgba(255,255,255,0.55);
+    padding:60px 0 30px;
+    text-align:center;
+  }
+  footer .logo{color:var(--white); justify-content:center; align-items:center; margin-bottom:14px;}
+  footer .flogo{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.6rem;
+    color:var(--white);
+    letter-spacing:0.04em;
+  }
+  footer .ftag{
+    font-size:0.72rem;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    margin:10px 0 30px;
+  }
+  footer .fdiv{
+    width:60px; height:1px;
+    background:var(--gold);
+    margin:0 auto 30px;
+  }
+  footer .fbottom{font-size:0.78rem; color:rgba(255,255,255,0.35); line-height:1.9;}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    .product-grid{grid-template-columns:1fr; max-width:420px; margin:0 auto;}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .about-grid{grid-template-columns:1fr; gap:50px;}
+    .about-visual{max-width:340px; margin:0 auto;}
+    .review-grid{grid-template-columns:1fr; max-width:460px; margin:0 auto;}
+    .contact-details{gap:40px;}
+  }
+  @media (max-width:760px){
+    .nav-links{
+      position:fixed; top:0; right:0;
+      height:100vh; width:75%; max-width:320px;
+      background:rgba(255,255,255,0.92);
+      backdrop-filter:blur(20px);
+      flex-direction:column;
+      align-items:flex-start;
+      justify-content:center;
+      gap:34px;
+      padding:40px;
+      transform:translateX(100%);
+      transition:transform .5s cubic-bezier(.19,1,.22,1);
+      box-shadow:-10px 0 40px rgba(0,0,0,0.1);
+      font-size:1rem;
+    }
+    .nav-links.open{transform:translateX(0);}
+    .menu-toggle{display:block;}
+    .why-grid{grid-template-columns:1fr;}
+    section.pad{padding:80px 0;}
+    .hero{padding-top:130px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- decorative repeating arabesque pattern def -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <pattern id="arabesque" width="120" height="120" patternUnits="userSpaceOnUse" patternTransform="scale(1)">
+      <g fill="none" stroke="#D4AF37" stroke-width="1">
+        <circle cx="60" cy="60" r="26"/>
+        <path d="M60 34 L86 60 L60 86 L34 60 Z"/>
+        <circle cx="0" cy="0" r="26"/>
+        <circle cx="120" cy="0" r="26"/>
+        <circle cx="0" cy="120" r="26"/>
+        <circle cx="120" cy="120" r="26"/>
+      </g>
+    </pattern>
+    <filter id="marbleNoise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.03" numOctaves="3" seed="7" result="turb"/>
+      <feColorMatrix in="turb" type="matrix" values="0 0 0 0 0.83  0 0 0 0 0.68  0 0 0 0 0.21  0 0 0 0.18 0"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- ---------------- HEADER ---------------- -->
+<header id="siteHeader">
+  <nav>
+    <div class="logo">AL-ARHAM<span>ATTAR &amp; PERFUM</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-close-link">Home</a></li>
+      <li><a href="#collection" class="nav-close-link">Collection</a></li>
+      <li><a href="#why" class="nav-close-link">Why Us</a></li>
+      <li><a href="#about" class="nav-close-link">About</a></li>
+      <li><a href="#reviews" class="nav-close-link">Reviews</a></li>
+      <li><a href="#contact" class="nav-close-link">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#collection" class="btn btn-outline" style="padding:10px 24px; font-size:0.7rem;">Shop</a>
+      <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+</header>
+
+<!-- ---------------- HERO ---------------- -->
+<section class="hero" id="home">
+  <svg class="marble-veins" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" filter="url(#marbleNoise)"/></svg>
+  <div class="arabesque-bg" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22><g fill=%22none%22 stroke=%22%23D4AF37%22 stroke-width=%221%22><circle cx=%2260%22 cy=%2260%22 r=%2226%22/><path d=%22M60 34 L86 60 L60 86 L34 60 Z%22/></g></svg>')"></div>
+  <div class="smoke smoke-1"></div>
+  <div class="smoke smoke-2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-bottle reveal in">
+      <svg viewBox="0 0 100 170" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gGoldHero" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#F3DE95"/>
+            <stop offset="50%" stop-color="#D4AF37"/>
+            <stop offset="100%" stop-color="#9C7A22"/>
+          </linearGradient>
+        </defs>
+        <rect x="38" y="8" width="24" height="20" rx="3" fill="url(#gGoldHero)"/>
+        <rect x="42" y="2" width="16" height="10" rx="2" fill="#111"/>
+        <path d="M28 32 Q28 26 38 26 L62 26 Q72 26 72 32 L78 150 Q78 164 64 164 L36 164 Q22 164 22 150 Z" fill="#FFFFFF" stroke="url(#gGoldHero)" stroke-width="2"/>
+        <path d="M32 60 L68 60 L72 150 Q72 158 64 158 L36 158 Q28 158 28 150 Z" fill="#FBF8F2" opacity="0.6"/>
+        <line x1="30" y1="45" x2="70" y2="45" stroke="url(#gGoldHero)" stroke-width="1.4"/>
+        <text x="50" y="100" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="9" fill="#9C7A22" letter-spacing="1">AL-ARHAM</text>
+      </svg>
+    </div>
+    <div class="eyebrow">luxury arabic attar</div>
+    <h1>Experience the <em>Essence</em><br>of Luxury</h1>
+    <p>Discover our exclusive collection of handcrafted attars inspired by timeless Arabic fragrances. Long-lasting, alcohol-free, and made for every occasion.</p>
+    <div class="hero-btns">
+      <a href="#collection" class="btn btn-gold">Shop Now</a>
+      <a href="#collection" class="btn btn-outline">Explore Collection</a>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>SCROLL</span><span class="line"></span></div>
+</section>
+
+<div class="divider">
+  <svg viewBox="0 0 180 34"><g fill="none" stroke="#D4AF37" stroke-width="1"><line x1="0" y1="17" x2="60" y2="17"/><circle cx="90" cy="17" r="10"/><path d="M85 17 L90 12 L95 17 L90 22 Z" fill="#D4AF37" stroke="none"/><line x1="120" y1="17" x2="180" y2="17"/></g></svg>
+</div>
+
+<!-- ---------------- COLLECTION ---------------- -->
+<section class="collection pad" id="collection">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">our collection</div>
+      <h2>Signature Fragrances</h2>
+    </div>
+
+    <div class="product-grid">
+
+      <div class="product-card reveal reveal-delay-1">
+        <span class="tag">Best Seller</span>
+        <div class="bottle-wrap">
+          <div class="glow"></div>
+          <svg viewBox="0 0 100 170" xmlns="http://www.w3.org/2000/svg">
+            <rect x="40" y="6" width="20" height="16" rx="2" fill="#111"/>
+            <path d="M30 26 Q30 20 40 20 L60 20 Q70 20 70 26 L76 148 Q76 162 62 162 L38 162 Q24 162 24 148 Z" fill="#FFFFFF" stroke="#D4AF37" stroke-width="2"/>
+            <line x1="30" y1="42" x2="70" y2="42" stroke="#D4AF37" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <h3>White Oud</h3>
+        <div class="price">₹399</div>
+        <p class="desc">A rich blend of premium white oud with soft woody notes. Elegant, long-lasting and perfect for daily luxury.</p>
+        <a href="#contact" class="btn btn-gold">Add to Cart</a>
+      </div>
+
+      <div class="product-card reveal reveal-delay-2">
+        <span class="tag">Royal Pick</span>
+        <div class="bottle-wrap">
+          <div class="glow"></div>
+          <svg viewBox="0 0 100 170" xmlns="http://www.w3.org/2000/svg">
+            <rect x="40" y="6" width="20" height="16" rx="2" fill="#111"/>
+            <path d="M30 26 Q30 20 40 20 L60 20 Q70 20 70 26 L76 148 Q76 162 62 162 L38 162 Q24 162 24 148 Z" fill="#FDF6EC" stroke="#D4AF37" stroke-width="2"/>
+            <line x1="30" y1="42" x2="70" y2="42" stroke="#D4AF37" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <h3>Rose Sultan</h3>
+        <div class="price">₹499</div>
+        <p class="desc">An unforgettable royal rose fragrance blended with oriental floral notes for a sophisticated personality.</p>
+        <a href="#contact" class="btn btn-gold">Add to Cart</a>
+      </div>
+
+      <div class="product-card reveal reveal-delay-3">
+        <span class="tag">Fresh Pick</span>
+        <div class="bottle-wrap">
+          <div class="glow"></div>
+          <svg viewBox="0 0 100 170" xmlns="http://www.w3.org/2000/svg">
+            <rect x="40" y="6" width="20" height="16" rx="2" fill="#111"/>
+            <path d="M30 26 Q30 20 40 20 L60 20 Q70 20 70 26 L76 148 Q76 162 62 162 L38 162 Q24 162 24 148 Z" fill="#FFFFFF" stroke="#D4AF37" stroke-width="2"/>
+            <line x1="30" y1="42" x2="70" y2="42" stroke="#D4AF37" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <h3>Lemon Musk</h3>
+        <div class="price">₹999</div>
+        <p class="desc">Fresh citrus lemon combined with soft musk creating a clean, refreshing and energetic fragrance for every season.</p>
+        <a href="#contact" class="btn btn-gold">Add to Cart</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- WHY CHOOSE US ---------------- -->
+<section class="why pad" id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">the al-arham promise</div>
+      <h2>Why Choose Us</h2>
+    </div>
+  </div>
+  <div class="why-grid">
+    <div class="why-item reveal"><div class="num">✓</div><h4>Premium Quality</h4><p>Finest attar ingredients, sourced and blended with care.</p></div>
+    <div class="why-item reveal reveal-delay-1"><div class="num">✓</div><h4>Alcohol Free</h4><p>Pure, traditional composition safe for everyday wear.</p></div>
+    <div class="why-item reveal reveal-delay-2"><div class="num">✓</div><h4>Long Lasting</h4><p>Fragrance that stays with you from morning to night.</p></div>
+    <div class="why-item reveal"><div class="num">✓</div><h4>Skin Friendly</h4><p>Gentle formulation suited for all skin types.</p></div>
+    <div class="why-item reveal reveal-delay-1"><div class="num">✓</div><h4>Affordable Luxury</h4><p>Premium fragrance experience without the premium price.</p></div>
+    <div class="why-item reveal reveal-delay-2"><div class="num">✓</div><h4>Fast Delivery</h4><p>Quick, careful shipping so your attar arrives fresh.</p></div>
+  </div>
+</section>
+
+<!-- ---------------- ABOUT ---------------- -->
+<section class="about pad" id="about">
+  <div class="wrap about-grid">
+    <div class="about-visual reveal">
+      <svg viewBox="0 0 100 170" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gGoldAbout" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#F3DE95"/>
+            <stop offset="100%" stop-color="#9C7A22"/>
+          </linearGradient>
+        </defs>
+        <rect x="38" y="8" width="24" height="20" rx="3" fill="url(#gGoldAbout)"/>
+        <path d="M28 32 Q28 26 38 26 L62 26 Q72 26 72 32 L78 150 Q78 164 64 164 L36 164 Q22 164 22 150 Z" fill="#111111" stroke="#D4AF37" stroke-width="2"/>
+        <line x1="30" y1="48" x2="70" y2="48" stroke="#D4AF37" stroke-width="1.4"/>
+        <text x="50" y="105" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="8" fill="#D4AF37" letter-spacing="1">EST. 2026</text>
+      </svg>
+    </div>
+    <div class="about-text reveal reveal-delay-1">
+      <div class="eyebrow">about al-arham</div>
+      <h2>Where Tradition Meets Luxury</h2>
+      <p>Welcome to AL-ARHAM Attar &amp; Perfum, where tradition meets luxury. We specialize in premium Arabic-inspired attars crafted with the finest ingredients to deliver long-lasting, elegant, and memorable fragrances.</p>
+      <p>Our mission is to provide affordable luxury that reflects confidence, sophistication, and timeless style. Every bottle is carefully selected to ensure exceptional quality and customer satisfaction.</p>
+      <p>Whether you're looking for a signature scent or a thoughtful gift, AL-ARHAM Attar &amp; Perfum offers fragrances that leave a lasting impression.</p>
+      <div class="signature">— Luxury in Every Drop.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- REVIEWS ---------------- -->
+<section class="reviews pad" id="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">customer reviews</div>
+      <h2>What They Say</h2>
+    </div>
+    <div class="review-grid">
+      <div class="review-card reveal reveal-delay-1">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Absolutely amazing fragrance. Long lasting and premium quality."</p>
+        <div class="review-name">Verified Buyer</div>
+      </div>
+      <div class="review-card reveal reveal-delay-2">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Best attar under budget. Highly recommended."</p>
+        <div class="review-name">Verified Buyer</div>
+      </div>
+      <div class="review-card reveal reveal-delay-3">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Beautiful packaging and fast delivery."</p>
+        <div class="review-name">Verified Buyer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- CONTACT ---------------- -->
+<section class="contact pad" id="contact">
+  <div class="wrap contact-inner reveal">
+    <div class="eyebrow">get in touch</div>
+    <h2>Contact AL-ARHAM Attar &amp; Perfum</h2>
+    <p class="lead">Have a question about our fragrances, orders, or a custom gift? Reach out — we'd love to help you find your signature scent.</p>
+    <div class="contact-details">
+      <div class="contact-item">
+        <div class="ic">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="label">Call Us</div>
+        <div class="value">76314287995</div>
+      </div>
+      <div class="contact-item">
+        <div class="ic">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z" stroke="none"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+        </div>
+        <div class="label">Email Us</div>
+        <div class="value">info@alarhamattar.com</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- FOOTER ---------------- -->
+<footer>
+  <div class="wrap">
+    <div class="flogo">AL-ARHAM Attar &amp; Perfum</div>
+    <div class="ftag">Luxury Arabic Fragrances</div>
+    <div class="fdiv"></div>
+    <div class="fbottom">
+      © 2026 AL-ARHAM Attar &amp; Perfum<br>
+      All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // header scroll state
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 40){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  });
+
+  // mobile menu
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  document.querySelectorAll('.nav-close-link').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
